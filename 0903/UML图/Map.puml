@@ -1,0 +1,75 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+interface Map{
+
+}
+note left of Map{
+"键值对存储"
+}
+
+    class HashMap{
+
+        }
+        note left of HashMap{
+        "底层数组+链表+红黑树(JDK8后)"
+        "默认容量16"
+        "扩容因子0.75f"
+        }
+        Map <|..HashMap
+
+    class Hashtable{
+
+    }
+    note bottom of Hashtable{
+        Map的古老实现类
+            "底层为链表+数组"
+            线程安全
+            底层通过加锁实现
+            效率很低
+    }
+    Map <|.. Hashtable
+
+        class Properties{}
+        note bottom of Properties{
+        "键值均为字符串"
+        常用于读取配置文件
+        }
+        Hashtable <|-- Properties
+
+
+
+        class LinkedHashMap{
+
+        }
+        note bottom of LinkedHashMap{
+          在HashMap的基础上
+            使用双向链表存储上下节点
+            迭代时可按照添加顺序
+        }
+        HashMap <|-- LinkedHashMap
+
+    interface SortMap{
+
+    }
+    note right of SortMap{
+    "可排序"
+    }
+    Map <|-- SortMap
+
+        class TreeMap{
+
+        }
+        note bottom of TreeMap{
+        "底层红黑排序树"
+        添加时调用元素的比较方法
+        和叶子节点的值比较
+        算出位置
+        }
+        SortMap <|.. TreeMap
+
+class 版权{
+"维信-1105"
+}
+
+@enduml

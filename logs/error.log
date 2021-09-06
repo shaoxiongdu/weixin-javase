@@ -1,0 +1,9 @@
+2021-09-02 11:34:15 ERROR  [main] (Demo.java:32) - 输入格式错误,
+2021-09-02 11:34:54 ERROR  [main] (Demo.java:34) - 算数运算错误
+2021-09-02 11:35:27 ERROR  [main] (Demo.java:34) - 算数运算错误
+java.lang.ArithmeticException: / by zero
+	at cn.shaoxiongdu.Demo.main(Demo.java:29) [log4j2/:?]
+2021-09-02 11:36:38 ERROR  [main] (Demo.java:34) - 发生错误	算数运算错误
+java.lang.ArithmeticException: / by zero
+	at cn.shaoxiongdu.Demo.main(Demo.java:29) [log4j2/:?]
+2021-09-02 11:37:18 ERROR  [main] (Demo.java:35) - 发生错误	算数运算错误

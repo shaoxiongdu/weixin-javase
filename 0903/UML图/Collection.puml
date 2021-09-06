@@ -1,0 +1,106 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+/'集合顶级接口 '/
+interface Connection{
+
+}
+note left of Connection{
+存储单个元素
+}
+
+    /'List接口 '/
+    interface List{
+    }
+    note left of List{
+    有序 可重复
+    可通过下标操作
+    }
+
+        Connection <|-- List
+
+        class Vector{
+            JDK1.0出现
+            作为List的古老实现类
+        }
+        note bottom of Vector{
+            "底层数组"
+            "增删慢"
+            "查询快"
+            "线程安全"
+        }
+        List <|..Vector
+
+        class ArrayList{
+            JDK1.2出现
+            作为List的主要实现类
+        }
+        note bottom of ArrayList{
+            "底层数组" 默认大小10
+            默认扩容倍数2
+           "增删慢" "查询快"
+           "线程不安全"
+        }
+
+        List <|..ArrayList
+
+        class LinkedList{
+            JDK1.2出现
+        }
+        note bottom of LinkedList{
+            "底层双向链表"
+            "增删快"
+            "查询慢"
+            "线程不安全"
+
+        }
+        List <|.. LinkedList
+
+    /'Set接口 无序 不可重复'/
+    interface Set{
+
+    }
+    note right of Set{
+        "无序 不可重复"
+    }
+    Connection <|-- Set
+        class HashSet{
+            JDK1.2出现
+            作为Set的主要实现类
+        }
+        note bottom of HashSet{
+        JDK1.7:"底层数组+链表"
+        JDK1.8:"底层数组+链表+红黑树"
+        }
+        Set <|.. HashSet
+
+        class LinkedHashSet{}
+        HashSet <|-- LinkedHashSet
+
+        interface SortedSet{
+
+        }
+        note right of SortedSet{
+        "可排序"
+        }
+        Set <|-- SortedSet
+
+        class TreeSet{
+
+        }
+        note right of TreeSet{
+           "底层二叉树"
+        }
+        SortedSet <|.. TreeSet
+
+class Collections{
+"集合工具类"
+}
+
+class 版权{
+维信-1105
+}
+
+
+
+@enduml

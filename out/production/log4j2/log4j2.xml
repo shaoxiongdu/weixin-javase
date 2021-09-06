@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 8个级别 OFF 对配置状态进行关闭 不把打印细节在控制台输出-->
+<Configuration status="INFO">
+ 
+  <Appenders>
+    <!-- 控制台打印日志信息 -->
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss} %-6level [%t] (%F:%L) - %msg%n"/>
+    </Console>
+
+   <!-- 自动生成保存在根目录下的logs文件夹下 -->
+    <File name="MyDebugFile" fileName="logs/debug.log">
+    
+    <Filters> 
+    <!-- 当前级别以上如何处理  DENY 拒绝  onMismatch当前级别 不包括自己 "NEUTRAL" 往后走-->
+    <ThresholdFilter level="info" onMatch="DENY" onMismatch="NEUTRAL"/> 
+    
+    <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/> 
+    </Filters>
+
+      <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss} %-6level [%t] (%F:%L) - %msg%n"/>
+    </File>
+    
+    
+    <File name="MyInfoFile" fileName="logs/info.log">
+    <Filters> 
+    <ThresholdFilter level="warn" onMatch="DENY" onMismatch="NEUTRAL"/> 
+    <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/> 
+    </Filters>
+      <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss} %-6level [%t] (%F:%L) - %msg%n"/>
+    </File>
+
+   
+    <File name="MyWarnFile" fileName="logs/warn.log">
+    <Filters> 
+    <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL"/> 
+    <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/> 
+    </Filters>
+      <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss} %-6level [%t] (%F:%L) - %msg%n"/>
+    </File>
+
+    
+    <File name="MyErrorFile" fileName="logs/error.log">
+    <Filters> 
+    <ThresholdFilter level="fatal" onMatch="DENY" onMismatch="NEUTRAL"/> 
+    <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/> 
+    </Filters>
+      <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss} %-6level [%t] (%F:%L) - %msg%n"/>
+    </File>
+
+   
+    <File name="MyFatalFile" fileName="logs/fatal.log">
+    <ThresholdFilter level="fatal" onMatch="ACCEPT" onMismatch="DENY"/>
+      <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss} %-6level [%t] (%F:%L) - %msg%n"/>
+    </File>
+  </Appenders>
+  
+ 
+  <Loggers>
+    <Root level="trace">
+      <AppenderRef ref="Console"/>
+      <AppenderRef ref="MyDebugFile"/>
+      <AppenderRef ref="MyInfoFile"/>
+      <AppenderRef ref="MyWarnFile"/>
+      <AppenderRef ref="MyErrorFile"/>
+      <AppenderRef ref="MyFatalFile"/>
+    </Root>
+  </Loggers>
+</Configuration>
