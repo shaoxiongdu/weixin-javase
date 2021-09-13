@@ -8,11 +8,15 @@
         <outputRelativeToContentRoot value="true" />
         <module name="0902" />
         <module name="0903" />
+        <module name="stage1-project" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="0902" target="8" />
       <module name="0903" target="8" />
+      <module name="0913阶段一项目" target="8" />
+      <module name="project1" target="8" />
+      <module name="stage1-project" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
