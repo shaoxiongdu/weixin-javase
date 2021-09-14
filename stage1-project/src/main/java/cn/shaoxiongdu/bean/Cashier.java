@@ -93,10 +93,12 @@ public class Cashier {
         user.sex = personInfoSource.randomGender() == 1 ? "男" : "女";
         user.address = areaSource.randomAddress();
         user.phoneNumber = personInfoSource.randomChineseMobile();
-        //生成1个1~101(不含)之间的随机整数
+        //随机年龄
         user.age = NumberSource.getInstance().randomInt(10, 80);
+        //随即账号
         user.account = personInfoSource.randomQQAccount();
-        user.password = personInfoSource.randomStrongPassword(6, true);
+        //随机密码
+        user.password = personInfoSource.randomStrongPassword(8, false);
         return user;
     }
 
@@ -138,6 +140,12 @@ public class Cashier {
                 .toString();
     }
 
+    /**
+     * 根据ID判断equals
+     *
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

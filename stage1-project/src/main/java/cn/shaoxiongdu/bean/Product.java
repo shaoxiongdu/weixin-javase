@@ -76,6 +76,12 @@ public class Product {
                 .toString();
     }
 
+    /**
+     * 根据产品编号作为比较标准
+     *
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

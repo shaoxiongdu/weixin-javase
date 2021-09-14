@@ -68,6 +68,12 @@ public class ProductType {
                 .toString();
     }
 
+    /**
+     * 根据ID作为比较的标准
+     *
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -76,6 +82,11 @@ public class ProductType {
         return id == that.id;
     }
 
+    /**
+     * ID参与到哈希值的计算中
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
         return Objects.hash(id);

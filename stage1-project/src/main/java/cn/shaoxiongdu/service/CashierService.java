@@ -29,11 +29,11 @@ public class CashierService {
                 e.printStackTrace();
             }
             if (calendar.getAccount().equals(account) && calendar.getPassword().equals(password)) {
-                LogService.log("尝试登录", "使用【账号:" + account + ",密码:" + password + "】登录", true, Log.LogType.收银员登录模块日志, "账号密码正确");
+                LogService.log("尝试登录", "使用【账号:" + account + ",密码:" + password + "】登录", true, Log.LogType.收银员登录日志, "账号密码正确");
                 return calendar;
             }
         }
-        LogService.log("尝试登录", "使用【账号:" + account + ",密码:" + password + "】登录", false, Log.LogType.收银员登录模块日志, "账号密码验证错误");
+        LogService.log("尝试登录", "使用【账号:" + account + ",密码:" + password + "】登录", false, Log.LogType.收银员登录日志, "账号密码验证错误");
         return null;
     }
 

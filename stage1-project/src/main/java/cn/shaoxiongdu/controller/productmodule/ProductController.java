@@ -16,7 +16,7 @@ import java.util.Scanner;
 /**
  * @作者: 杜少雄 <email@shaoxiongdu.cn>
  * @日期: 2021年09月13日 | 17:25
- * @描述:
+ * @描述: 产品
  */
 public class ProductController {
 

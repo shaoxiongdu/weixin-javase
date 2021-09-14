@@ -122,7 +122,7 @@ public class Order {
                 .add("收银员:" + CashierService.getById(cashierId).getName())
                 .add("\n商品列表:" + product + "\n")
                 .add("总价:" + this.totalPrice + "\n")
-                .add("下单日期:'" + dateTime + "\n")
+                .add("下单日期:" + dateTime + "\n")
                 .toString();
     }
 }
